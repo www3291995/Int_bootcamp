@@ -1,0 +1,7 @@
+C:\Users\programmer\Source\Repos\int bootcamp\int bootcamp\bin\Debug\int bootcamp.exe.config
+C:\Users\programmer\Source\Repos\int bootcamp\int bootcamp\bin\Debug\int bootcamp.exe
+C:\Users\programmer\Source\Repos\int bootcamp\int bootcamp\bin\Debug\int bootcamp.pdb
+C:\Users\programmer\Source\Repos\int bootcamp\int bootcamp\obj\Debug\int bootcamp.csprojAssemblyReference.cache
+C:\Users\programmer\Source\Repos\int bootcamp\int bootcamp\obj\Debug\int bootcamp.csproj.CoreCompileInputs.cache
+C:\Users\programmer\Source\Repos\int bootcamp\int bootcamp\obj\Debug\int bootcamp.exe
+C:\Users\programmer\Source\Repos\int bootcamp\int bootcamp\obj\Debug\int bootcamp.pdb

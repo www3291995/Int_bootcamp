@@ -1,0 +1,17 @@
+C:\Users\programmer\Source\Repos\int bootcamp\int_bootcamp_test\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTest.TestAdapter.dll
+C:\Users\programmer\Source\Repos\int bootcamp\int_bootcamp_test\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.Interface.dll
+C:\Users\programmer\Source\Repos\int bootcamp\int_bootcamp_test\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.dll
+C:\Users\programmer\Source\Repos\int bootcamp\int_bootcamp_test\bin\Debug\int_bootcamp_test.dll
+C:\Users\programmer\Source\Repos\int bootcamp\int_bootcamp_test\bin\Debug\int_bootcamp_test.pdb
+C:\Users\programmer\Source\Repos\int bootcamp\int_bootcamp_test\bin\Debug\int bootcamp.exe
+C:\Users\programmer\Source\Repos\int bootcamp\int_bootcamp_test\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.dll
+C:\Users\programmer\Source\Repos\int bootcamp\int_bootcamp_test\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.dll
+C:\Users\programmer\Source\Repos\int bootcamp\int_bootcamp_test\bin\Debug\int bootcamp.pdb
+C:\Users\programmer\Source\Repos\int bootcamp\int_bootcamp_test\bin\Debug\int bootcamp.exe.config
+C:\Users\programmer\Source\Repos\int bootcamp\int_bootcamp_test\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.xml
+C:\Users\programmer\Source\Repos\int bootcamp\int_bootcamp_test\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.xml
+C:\Users\programmer\Source\Repos\int bootcamp\int_bootcamp_test\obj\Debug\int_bootcamp_test.csprojAssemblyReference.cache
+C:\Users\programmer\Source\Repos\int bootcamp\int_bootcamp_test\obj\Debug\int_bootcamp_test.csproj.CoreCompileInputs.cache
+C:\Users\programmer\Source\Repos\int bootcamp\int_bootcamp_test\obj\Debug\int_bootcamp_test.csproj.CopyComplete
+C:\Users\programmer\Source\Repos\int bootcamp\int_bootcamp_test\obj\Debug\int_bootcamp_test.dll
+C:\Users\programmer\Source\Repos\int bootcamp\int_bootcamp_test\obj\Debug\int_bootcamp_test.pdb
