@@ -1,9 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using System.Text.RegularExpressions;
-using System.Threading.Tasks;
 
 namespace int_bootcamp
 {
@@ -654,6 +652,92 @@ namespace int_bootcamp
         }
         #endregion
 
+        #region circular
+        public bool circular<T>(MyLinkedList<T> lst)
+        {
+            MyNode<T> slow = lst.head;
+            MyNode<T> fast = lst.head;
 
+            while (fast.next != null && fast.next.next != null)
+            {
+                slow = slow.next;
+                fast = fast.next.next;
+
+                if (slow.Equals(fast))
+                    return true;
+            }
+
+            return false;
+        }
+        #endregion
+
+        #region fromlast
+        public MyNode<T> fromlast<T>(MyLinkedList<T> lst, int index)
+        {
+            MyNode<T> slow = lst.GetFirst();
+            MyNode<T> fast = lst.head;
+
+            for (int i = 0; i < index; i++)
+            {
+                fast = fast.next;
+            }
+            while (fast.next != null)
+            {
+                slow = slow.next;
+                fast = fast.next;
+            }
+
+            return slow;
+        }
+        #endregion
+
+        #region tree
+        public class MyTreeNode<T>
+        {
+            public T data;
+            public List<MyTreeNode<T>> children;
+
+            public MyTreeNode(T data)
+            {
+                this.data = data;
+                this.children = new List<MyTreeNode<T>>();
+            }
+
+            public void Add(T data)
+            {
+                this.children.Add(new MyTreeNode<T>(data));
+            }
+
+            public void remove(T data)
+            {
+                children.RemoveAll(x => x.data.Equals(data));
+            }
+        }
+
+        public class MyTree<T>
+        {
+            public MyTreeNode<T> root;
+
+            public MyTree()
+            {
+                root = null;
+            }
+
+            public IList<T> TraverseBF()
+            {
+                IList<T> rtn = new List<T>();
+                BFHelper(root, rtn);
+                return rtn;
+            }
+
+            private void BFHelper(MyTreeNode<T> root, IList<T> rtn)
+            {
+                if (root == null)
+                    return;
+
+               
+            }
+        }
+        #endregion
     }
 }

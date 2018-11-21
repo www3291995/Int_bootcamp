@@ -374,5 +374,53 @@ l = p.fizzbuzz(15);
             l1.InsertLast("why");
             Assert.AreEqual("what", p.midpoint<string>(l1).data);
         }
+
+        [TestMethod]
+        public void Test_circular()
+        {
+            Program.MyLinkedList<int> l1 = new Program.MyLinkedList<int>();
+            Program.MyNode<int> n1 = new Program.MyNode<int>(1);
+            Program.MyNode<int> n2 = new Program.MyNode<int>(2);
+            Program.MyNode<int> n3 = new Program.MyNode<int>(3);
+            l1.head = n1;
+            n1.next = n2;
+            n2.next = n3;
+            n3.next = n1;
+
+            Assert.AreEqual(true, p.circular<int>(l1));
+        }
+
+        [TestMethod]
+        public void Test_fromlast()
+        {
+            Program.MyLinkedList<string> l1 = new Program.MyLinkedList<string>();
+            Assert.AreEqual(0, l1.Size());
+            l1.InsertLast("hi");
+            l1.InsertLast("there");
+            l1.InsertLast("what");
+            l1.InsertLast("who");
+            l1.InsertLast("why");
+
+            Assert.AreEqual("there", p.fromlast<string>(l1, 3).data);
+        }
+
+        [TestMethod]
+        public void Test_tree()
+        {
+            Program.MyTreeNode<string> tn1 = new Program.MyTreeNode<string>("a");
+            tn1.Add("b");
+
+            Assert.AreEqual(1, tn1.children.Count);
+            Assert.AreEqual("b", tn1.children[0].data);
+
+            tn1.remove("b");
+            Assert.AreEqual(0, tn1.children.Count);
+
+            Program.MyTree<string> t1 = new Program.MyTree<string>();
+            t1.root = new Program.MyTreeNode<string>("a");
+            t1.root.Add("b");
+            t1.root.Add("c");
+            t1.root.children[0].Add("d");
+        }
     }
 }
