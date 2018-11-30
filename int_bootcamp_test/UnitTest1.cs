@@ -15,7 +15,7 @@ namespace int_bootcamp_test
         {
             string a1 = "abcd";
             string a2 = "dcba";
-           
+
             string a3 = p.reverse_string(a1);
 
             Assert.AreEqual(a2, a3);
@@ -65,8 +65,8 @@ namespace int_bootcamp_test
         public void Test_fizzbuzz()
         {
             IList<string> l = new List<string>();
-            
-l = p.fizzbuzz(15);
+
+            l = p.fizzbuzz(15);
             Assert.AreEqual("1", l[0]);
             Assert.AreEqual("2", l[1]);
             Assert.AreEqual("fizz", l[2]);
@@ -158,7 +158,7 @@ l = p.fizzbuzz(15);
         [TestMethod]
         public void Test_fib()
         {
-            Assert.AreEqual(63245986, p.fib(39, new Dictionary<int,int>()));
+            Assert.AreEqual(63245986, p.fib(39, new Dictionary<int, int>()));
         }
 
         [TestMethod]
@@ -421,6 +421,95 @@ l = p.fizzbuzz(15);
             t1.root.Add("b");
             t1.root.Add("c");
             t1.root.children[0].Add("d");
+            t1.root.children[0].Add("e");
+
+            IList<string> l1 = t1.TraverseBF();
+            IList<string> l2 = new List<string>() { "a", "b", "c", "d", "e" };
+            CollectionAssert.AreEqual(l2.ToList(), l1.ToList());
+
+            l1 = t1.TraverseDF();
+            l2 = new List<string>() { "a", "b", "d", "e", "c" };
+            CollectionAssert.AreEqual(l2.ToList(), l1.ToList());
+        }
+
+        [TestMethod]
+        public void Test_levelwidth()
+        {
+            Program.MyTreeNode<int> n1 = new Program.MyTreeNode<int>(0);
+            n1.Add(1);
+            n1.Add(2);
+            n1.Add(3);
+            n1.children[0].Add(4);
+            n1.children[2].Add(5);
+
+            CollectionAssert.AreEqual(new int[] { 1, 3, 2 }, p.LevelWidth(n1));
+
+            Program.MyTreeNode<int> n2 = new Program.MyTreeNode<int>(0);
+            n2.Add(1);
+            n2.children[0].Add(2);
+            n2.children[0].Add(3);
+            n2.children[0].children[0].Add(4);
+
+            CollectionAssert.AreEqual(new int[] { 1, 1, 2, 1 }, p.LevelWidth(n2));
+        }
+
+        [TestMethod]
+        public void Test_bst()
+        {
+            Program.MybstNode<int> node = new Program.MybstNode<int>(10);
+            node.Insert(5);
+            node.Insert(15);
+            node.Insert(17);
+
+            Assert.AreEqual(5, node.left.data);
+            Assert.AreEqual(15, node.right.data);
+            Assert.AreEqual(17, node.right.right.data);
+        }
+
+        [TestMethod]
+        public void Test_bst_contains()
+        {
+            Program.MybstNode<int> node = new Program.MybstNode<int>(10);
+            node.Insert(5);
+            node.Insert(15);
+            node.Insert(20);
+            node.Insert(0);
+            node.Insert(-5);
+            node.Insert(3);
+
+            var result = node.left.left.left;
+            Assert.AreEqual(result, node.Contains(-5));
+        }
+
+        [TestMethod]
+        public void Test_validate()
+        {
+            Program.MybstNode<int> n = new Program.MybstNode<int>(10);
+            n.Insert(5);
+            n.Insert(15);
+            n.Insert(0);
+            n.Insert(20);
+
+            Assert.IsTrue(p.validate(n));
+
+            Program.MybstNode<int> n1 = new Program.MybstNode<int>(10);
+            n1.Insert(5);
+            n1.Insert(15);
+            n1.Insert(0);
+            n1.Insert(20);
+            n1.left.left.right = new Program.MybstNode<int>(999);
+
+            Assert.IsFalse(p.validate(n1));
+        }
+
+        [TestMethod]
+        public void Test_sorting()
+        {
+            int[] i1 = new int[] { 100, -40, 500, -124, 0, 21, 7 };
+            int[] i2 = new int[] { -124, -40, 0, 7, 21, 100, 500 };
+
+            p.SelectionSort(i1);
+            CollectionAssert.AreEqual(i2, i1);
         }
     }
 }

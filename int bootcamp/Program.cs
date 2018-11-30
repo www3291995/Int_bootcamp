@@ -726,18 +726,170 @@ namespace int_bootcamp
             public IList<T> TraverseBF()
             {
                 IList<T> rtn = new List<T>();
-                BFHelper(root, rtn);
+                rtn.Add(root.data);
+                Queue<MyTreeNode<T>> q = new Queue<MyTreeNode<T>>();
+                q.Enqueue(root);
+                while (q.Count > 0)
+                {
+                    var n = q.Dequeue();
+                    foreach (var child in n.children)
+                    {
+                        q.Enqueue(child);
+                        rtn.Add(child.data);
+                    }
+                }
                 return rtn;
             }
 
-            private void BFHelper(MyTreeNode<T> root, IList<T> rtn)
+            public IList<T> TraverseDF()
             {
-                if (root == null)
-                    return;
+                IList<T> rtn = new List<T>();
+                rtn.Add(root.data);
+                dfs(root, rtn);
+                return rtn;
+            }
 
-               
+            void dfs(MyTreeNode<T> node, IList<T> rtn)
+            {
+                foreach (var n in node.children)
+                {
+                    rtn.Add(n.data);
+                    dfs(n, rtn);
+                }
             }
         }
         #endregion
+
+        #region levelwidth
+        public int[] LevelWidth<T>(MyTreeNode<T> node)
+        {
+            IList<MyTreeNode<T>> lst = new List<MyTreeNode<T>>();
+            MyTreeNode<T> last = new MyTreeNode<T>(default(T));
+            lst.Add(node);
+            lst.Insert(lst.Count, last);
+
+            IList<int> rtn = new List<int>();
+            rtn.Add(0);
+            while (lst.Count > 1)
+            {
+                MyTreeNode<T> n = lst[0];
+                lst.RemoveAt(0);
+
+                if (n == last)
+                {
+                    rtn.Add(0);
+                    lst.Insert(lst.Count, last);
+                }
+                else
+                {
+                    foreach (var child in n.children)
+                    {
+                        lst.Insert(lst.Count, child);
+                    }
+                    rtn[rtn.Count - 1]++;
+                }
+            }
+            return rtn.ToArray();
+        }
+        #endregion
+
+        #region bst
+        public class MybstNode<T>
+        {
+            public T data { get; set; }
+            public MybstNode<T> left { get; set; }
+            public MybstNode<T> right { get; set; }
+
+            public MybstNode(T data)
+            {
+                this.data = data;
+                left = null;
+                right = null;
+            }
+
+            public void Insert(T data)
+            {
+                if (Comparer<T>.Default.Compare(this.data, data) > 0 && left != null)
+                {
+                    left.Insert(data);
+                }
+                else if (Comparer<T>.Default.Compare(this.data, data) > 0)
+                {
+                    left = new MybstNode<T>(data);
+                }
+                else if (Comparer<T>.Default.Compare(this.data, data) < 0 && right != null)
+                {
+                    right.Insert(data);
+                }
+                else if (Comparer<T>.Default.Compare(this.data, data) < 0)
+                {
+                    right = new MybstNode<T>(data);
+                }
+            }
+
+            public MybstNode<T> Contains(T data)
+            {
+                if (Equals(this.data, data))
+                {
+                    return this;
+                }
+
+                if (Comparer<T>.Default.Compare(this.data, data) > 0 && left != null)
+                {
+                    return left.Contains(data);
+                }
+                else if (Comparer<T>.Default.Compare(this.data, data) < 0 && right != null)
+                {
+                    return right.Contains(data);
+                }
+                else
+                {
+                    return null;
+                }
+            }
+        }
+        #endregion
+
+        #region validate
+        public bool validate(MybstNode<int> node, int? min = null, int? max = null)
+        {
+            if (max != null && node.data > max)
+                return false;
+
+            if (min != null && node.data < min)
+                return false;
+
+            if (node.left != null && !validate(node.left, min, node.data))
+                return false;
+
+            if (node.right != null && !validate(node.right, node.data, max))
+                return false;
+
+            return true;
+        }
+        #endregion
+
+        #region sorting
+        public void BubbleSort(int[] arr)
+        {
+            for (int i = 0; i < arr.Length; i++)
+            {
+                for (int j = i; j < arr.Length; j++)
+                {
+                    if (arr[i] > arr[j])
+                    {
+                        int tmp = arr[j];
+                        arr[j] = arr[i];
+                        arr[i] = tmp;
+                    }
+                }
+            }
+        }
+
+        public void SelectionSort(int[] arr)
+        {
+            Array.Sort(arr);
+        }
+        #endregion 
     }
 }
